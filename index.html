@@ -1235,3 +1235,85 @@
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">Activité récente</h3>
+                            </div>
+                            <canvas id="activityChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Profile Page -->
+                    <div id="dashboard-profile" class="dashboard-page" style="display: none;">
+                        <div class="page-header">
+                            <h2 class="page-title">Mon Profil</h2>
+                        </div>
+                        <div class="profile-header">
+                            <img src="https://ui-avatars.com/api/?name=User&background=6366f1&color=fff" 
+                                 alt="Avatar" class="profile-avatar" id="profileAvatar" onclick="document.getElementById('avatarUpload').click()">
+                            <input type="file" id="avatarUpload" class="avatar-upload" accept="image/*" onchange="handleAvatarUpload(event)">
+                            <div>
+                                <h3 id="profileName">Chargement...</h3>
+                                <p id="profileEmail" style="color: var(--text-secondary);">Chargement...</p>
+                                <span class="badge" id="profileBadge">FREE</span>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Modifier le profil</h3>
+                            </div>
+                            <form id="profileForm">
+                                <div class="form-group">
+                                    <label class="form-label">Nom complet</label>
+                                    <input type="text" class="form-input" id="profileNameInput" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" class="form-input" id="profileEmailInput" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Subscription Page -->
+                    <div id="dashboard-subscription" class="dashboard-page" style="display: none;">
+                        <div class="page-header">
+                            <h2 class="page-title">Mon Abonnement</h2>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Plan actuel</h3>
+                            </div>
+                            <div id="currentSubscription">
+                                <p>Chargement...</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Changer de plan</h3>
+                            </div>
+                            <div class="pricing-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                                <div class="pricing-card">
+                                    <div class="pricing-name">FREE</div>
+                                    <div class="pricing-price">0€<span>/mois</span></div>
+                                    <button class="btn btn-secondary" onclick="handleUpgrade('FREE')">Sélectionner</button>
+                                </div>
+                                <div class="pricing-card">
+                                    <div class="pricing-name">PRO</div>
+                                    <div class="pricing-price">19€<span>/mois</span></div>
+                                    <button class="btn btn-primary" onclick="handleUpgrade('PRO')">Upgrade</button>
+                                </div>
+                                <div class="pricing-card">
+                                    <div class="pricing-name">PREMIUM</div>
+                                    <div class="pricing-price">49€<span>/mois</span></div>
+                                    <button class="btn btn-primary" onclick="handleUpgrade('PREMIUM')">Upgrade</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projects Page -->
+                    <div id="dashboard-projects" class="dashboard-page" style="display: none;">
+                        <div class="page-header">
+                            <h2 class="page-title">Mes Projets</h2>
+                            <button class="btn btn-primary" onclick="showCreateProjectModal()">+ Créer un projet</button>
+                        </div>
+                        <input type="text" class="search-bar" 
